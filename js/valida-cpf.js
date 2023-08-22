@@ -1,10 +1,7 @@
 export default function validarCPF(campo) {
     const cpf = campo.value.replace(/\.|-/g, '');
-    if (validarNumerosRepetidos(cpf) || validarPrimeiroDigito(cpf) || validarSegundoDigito(cpf)) {
-        console.log('Esse CPF é inválido');
-    } else {
-        console.log('CPF válido');
-    }
+    if (validarNumerosRepetidos(cpf) || validarPrimeiroDigito(cpf) || validarSegundoDigito(cpf))
+        campo.setCustomValidity('O CPF informado não é válido');
 }
 
 function validarNumerosRepetidos(cpf) {
@@ -13,7 +10,7 @@ function validarNumerosRepetidos(cpf) {
                               '44444444444', '55555555555',
                               '66666666666', '77777777777',
                               '88888888888', '99999999999'];
-
+                                  
     return numerosRepetidos.includes(cpf);
 }
 
